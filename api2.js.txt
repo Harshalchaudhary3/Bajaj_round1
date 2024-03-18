@@ -1,0 +1,38 @@
+const axios = require("axios");
+
+const url =
+  "https://customer-analytics-34146.my.salesforce-sites.com/services/apexrest/buyStocks";
+const rollNumber = "2110990567";
+const company = "Tata Steel Ltd";
+const currentPrice = 150;
+const accountNumber = "BFHL0018677";
+const githubRepoLink = "https://github.com/Harshalchaudhary3/Bajaj_round1";
+
+const headers = {
+  "content-type": "application/json",
+  "bfhl-auth": rollNumber,
+};
+
+const data = {
+  company,
+  currentPrice,
+  accountNumber,
+  githubRepoLink,
+};
+
+axios
+  .post(url, data, { headers })
+  .then((response) => {
+    console.log("Response:", response.data);
+  })
+  .catch((error) => {
+    console.error("Error:", error.message);
+  });
+
+
+
+//Response: {
+  //totalStocksLeft: 999,
+  //shareCertificateNumber: 'DMAT1860186114',
+  //isSuccess: true
+//}
